@@ -1,17 +1,42 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Usuários
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-item *ngFor="let user of listaUsuarios">
+    <ion-avatar slot="start">
+      <img [src]="user.avatar">
+    </ion-avatar>
+    <ion-label>
+      <div>
+        <h1> {{user.first_name}} {{user.last_name}}
+
+        </h1>
+        <h2> {{user.email}}</h2>
+
+      </div>
+    </ion-label>
+
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col><ion-button expand="block" (click)="buscarUsuario(page-1)">
+
+        <ion-icon slot="icon-only" name="arrow-undo-outline"></ion-icon>
+      </ion-button></ion-col>
+
+      <ion-col>{{page}} de {{totalPaginas}}</ion-col>
+
+      <ion-col><ion-button>
+        <ion-icon slot="icon-only" name="arrow-redo-outline"></ion-icon>
+      </ion-button></ion-col>
+
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -21,10 +21,18 @@ export class Tab1Page {
   //Lista para os usuarios
   public listaUsuarios = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) { 
+  this.buscarUsuarios(this.page);
+}
 
   public buscarUsuarios(pagina: Number) {
     this.userService.listarUsuarios(pagina).subscribe(dados => {
+      this.page = dados["page"];
+      this.totalPaginas = dados["total_pages"];
+      this.usuarioPagina = dados["per_page"];
+      this.totalUsuario = dados["total"];
+      this.listaUsuarios = dados["data"];
+
     });
   }
 
