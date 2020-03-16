@@ -26,7 +26,7 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col><ion-button expand="block" (click)="buscarUsuario(page-1)">
+      <ion-col><ion-button expand="block" (click)="buscarUsuarios(page-1)">
 
         <ion-icon slot="icon-only" name="arrow-undo-outline"></ion-icon>
       </ion-button></ion-col>
@@ -35,7 +35,7 @@
 
       <ion-col><ion-button>
         <ion-icon slot="icon-only" name="arrow-redo-outline"></ion-icon>
-      </ion-button></ion-col>
+      </ion-button expand="block" (click)="buscarUsuarios(page+1)"></ion-col>
 
     </ion-row>
   </ion-grid>
